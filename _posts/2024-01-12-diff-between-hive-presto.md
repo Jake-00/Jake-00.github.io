@@ -13,25 +13,24 @@ tags:
 
 # Hive 和 Presto 的 SQL 方言差异汇总
 可以粗略分成 3 种：
-1. 细节语法不同（特点是关键字和符号一样）
+1. 语法不兼容
 2. 同样功能函数名不同
 3. 计算返回结果不同
 
 
-## 1. 细节语法不同
-1.1 关键字一样，语法不同
-* **DISTINCT**
+## 1. 语法不兼容
+1.1 关键字语法不兼容
+* **DISTINCT** 跟随多个参数
 
 ```sql
-/* Deduplicate one row */
--- Hive, no need of brackets
-SELECT count(distinct uuid) as uv;
+-- Hive works but for Presto
+SELECT count(distinct id, name) as uv;
 
--- Presto, must be with brackets
-SELECT count(distinct(uuid)) as uv;
+-- Presto(Trino & DuckDB & Postgres), dose not support distinct syntax followed by multiple args in an AggFunc
+SELECT count(distinct case when id is null then null when name is null then null else (id, name) end) as uv;
 ```
 
-1.2 符号一样
+1.2 数组下标起始不同
 * 数组下标的0/1之争
 
 ```sql

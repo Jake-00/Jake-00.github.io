@@ -1,6 +1,6 @@
 ---
 layout:       post
-title:        "Worker's Day Holiday in Japan"ß
+title:        "Worker's Day Holiday in Japan"
 author:       "Jake"
 header-style: text
 catalog:      true

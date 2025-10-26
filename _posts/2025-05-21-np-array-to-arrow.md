@@ -5,9 +5,9 @@ author:       "Jake"
 header-style: text
 catalog:      true
 tags:
-    - life
-    - holiday
-    - Japan
+    - Python
+    - Numpy
+    - Pyarray
 ---
 
 # 需求

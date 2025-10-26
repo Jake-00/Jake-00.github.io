@@ -1,6 +1,6 @@
 ---
 layout:       post
-title:        "How to convert numpy array to pyarrow array"
+title:        "multiprocessing in Python"
 author:       "Jake"
 header-style: text
 catalog:      true

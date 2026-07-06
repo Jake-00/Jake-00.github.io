@@ -14,7 +14,7 @@ tags:
 
 ## 什么是 coroutine 和 task？
 协程中，coroutine有2个概念：`coroutine function` 和 `coroutine object`
-```py
+```python
 # 由 async 修饰的函数就是 coroutine function
 async def func():
     ...
@@ -31,6 +31,7 @@ await coro_obj
 ```
 2. create_task
 当一个 coroutine function 内部有多个需要并发执行时，连续 await 多个 coroutine function 是同步的逻辑
+
 ```python
 coro_obj1 = func()
 coro_obj2 = func()
@@ -38,6 +39,7 @@ coro_obj2 = func()
 await coro_obj1
 await coro_obj2
 ```
+
 Q：如何实现在执行 coro_obj1 时遇到阻塞点直接执行 coro_obj2 呢？
 A：通过 `asyncio.create_task()` 创建 Task ，注册到 Event Loop 后，让 await 去调用！
 ```python

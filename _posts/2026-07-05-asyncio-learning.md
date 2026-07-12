@@ -32,6 +32,7 @@ await coro_obj
 2. create_task
 当一个 coroutine function 内部有多个需要并发执行时，连续 await 多个 coroutine function 是同步的逻辑
 
+
 ```python
 coro_obj1 = func()
 coro_obj2 = func()
